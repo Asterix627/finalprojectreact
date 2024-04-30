@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-hijau1 flex flex-col md:flex-row justify-between items-center">
-      <div className="flex flex-row gap-2 mt-5 ml-5 ">
+    <footer className="bg-hijau1 flex flex-col md:flex-row justify-between items-center px-4">
+      <div className="flex flex-row gap-2 mt-5 ml-5 mx">
         <img
           className="shrink-0 size-16 md:size-24 xl:size-32 "
           src="./src/assets/img/logo/asqolanlogo.png"
