@@ -1,7 +1,6 @@
 import InputFormLabel from "../components/atoms/Input/index";
 import IndexButton from "../components/atoms/Button";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 const FormResetPassword = () => {
   const [title, setTitle] = useState("Reset Password");
@@ -10,19 +9,21 @@ const FormResetPassword = () => {
     document.title = title;
   }, [setTitle]);
 
-  const dataInput = [
-    {
-      label: "Email",
-      name: "Email",
-      placeholder: "Example@example.com",
-      type: "email",
-    },
-  ];
+  const handleReset = (e) => {
+    e.preventDefault();
+
+    const emailValue = e.target.email.value;
+    if (emailValue === "") {
+      alert("Email harus diisi");
+    } else {
+      alert(`Reset Password Telah dikirim ke email ${emailValue}`);
+      window.location.href = "/login";
+    }
+  };
+
   return (
-    <form>
-      {dataInput.map((input, index) => (
-        <InputFormLabel key={index} label={input.label} name={input.name} placeholder={input.placeholder} type={input.type} />
-      ))}
+    <form onSubmit={handleReset}>
+      <InputFormLabel label="Email" name="email" placeholder="Example@example.com" type="email" />
       <div className="text-sm text-end mt-4 mb-4">
         <IndexButton name="Reset Password" />
       </div>

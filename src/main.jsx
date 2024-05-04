@@ -11,6 +11,7 @@ import ResetPasswordPage from "./pages/ResetPassword.jsx";
 import Profile from "./pages/Profile.jsx"
 import "./index.css"
 import HomePage from "./pages/HomePage.jsx"
+import Dashboard from "./pages/Dashboard.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/pendaftaran",
-    element: <RegisterPage />,
+    element: <RegisterAccountPage />,
   },
   {
     path: "/login",
@@ -41,6 +42,14 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+  },
+  {
+    path: "/daftarsekolah",
+    element: <RegisterPage />,
   },
 ]);
 
