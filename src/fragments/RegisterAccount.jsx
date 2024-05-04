@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const RegisterAccoutFragment = () => {
-  const [title, setTitle] = useState("Daftar Akun");
-
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleRegister = (e) => {
@@ -21,8 +19,8 @@ const RegisterAccoutFragment = () => {
   };
 
   useEffect(() => {
-    document.title = title;
-  }, [setTitle]);
+    document.title = "Daftar Akun";
+  });
 
   return (
     <form onSubmit={handleRegister}>
