@@ -24,7 +24,6 @@ const FormLoginFragment = () => {
     if (data.emailValue === emailStored && data.passwordValue === passwordStored) {
       localStorage.setItem("email", data.emailValue);
       localStorage.setItem("password", data.passwordValue);
-      console.log(data.emailValue, data.passwordValue);
       window.location.href = "/pendaftaran";
     } else {
       setErrorMessage("Email atau password salah");
