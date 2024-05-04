@@ -4,6 +4,7 @@ import IndexButton from "../components/atoms/Button";
 import { Result } from "antd";
 import RegisterContainer from "../components/molecules/RegisterContainer";
 import { Link } from "react-router-dom";
+import DataForm from "../components/data/DataForm";
 
 const RegisterFragments = () => {
   const [formData, setFormData] = useState({
@@ -42,45 +43,6 @@ const RegisterFragments = () => {
     }
   };
 
-  const dataInput = [
-    {
-      label: "Nama Lengkap",
-      name: "Nama Lengkap",
-      placeholder: "Nama Lengkap",
-      type: "text",
-    },
-    {
-      label: "Tempat Lahir",
-      name: "Tempat Lahir",
-      placeholder: "Tempat Lahir",
-      type: "text",
-    },
-    {
-      label: "Tanggal Lahir",
-      name: "Tanggal Lahir",
-      placeholder: "mm/dd/yyyy",
-      type: "date",
-    },
-    {
-      label: "Asal Sekolah",
-      name: "Asal Sekolah",
-      placeholder: "Asal Sekolah",
-      type: "text",
-    },
-    {
-      label: "Alamat Rumah",
-      name: "Alamat Rumah",
-      placeholder: "Alamat Lengkap",
-      type: "text",
-    },
-    {
-      label: "Nomor HP/WA",
-      name: "Nomor HP/WA",
-      placeholder: "62-888-888-888",
-      type: "text",
-    },
-  ];
-
   return (
     <>
       {isSuccess ? (
@@ -107,7 +69,7 @@ const RegisterFragments = () => {
             <h1 className="flex font-bold text-hijau1 text-2xl text-center md:text-left">
               Pendaftaran Calon Peserta Didik Tahun Pelajaran 2024
             </h1>
-            {dataInput.map((input, index) => (
+            {DataForm.map((input, index) => (
               <InputFormLabel
                 key={index}
                 label={input.label}

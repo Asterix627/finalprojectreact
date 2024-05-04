@@ -30,7 +30,7 @@ const Nav = () => {
           <Link spy={true} smooth={true} to="/profile">
             <li className="my-4 py-4 border-b border-slate-800 hover:bg-slate-800 hover:rounded">
               {" "}
-              Profil
+              Profile
             </li>
           </Link>
           <Link spy={true} smooth={true} to="/pendaftaran">
@@ -45,7 +45,7 @@ const Nav = () => {
   );
   return (
     <nav>
-      <div className="h-10vh flex justify-between z-50 text-hijau1txt lg:py-5 px-20 py-4">
+      <div className="h-10vh flex justify-between z-50 absolute w-screen bg-hijau1 text-hijau1txt lg:px-20 px-4 py-4">
         <div className="flex items-center flex-0">
           <Link to="/">
             <img
@@ -73,7 +73,7 @@ const Nav = () => {
               <Link spy={true} smooth={true} to="/profile">
                 <li className="hover:text-hovertxt transition hover:border-b-2 border-primetxt hover:border-hovertxt hover:font-medium cursor-pointer">
                   {" "}
-                  Profil
+                  Profile
                 </li>
               </Link>
               <Link spy={true} smooth={true} to="/pendaftaran">
@@ -87,8 +87,13 @@ const Nav = () => {
         </div>
         <div className="flex gap-4">
           {click && content}
-          <button>{click ? <FaSearch /> : <FaSearch size={25} />}</button>
-          <button>{click ? <VscAccount /> : <VscAccount size={25} />}</button>
+          <Link className="flex" to={""}>
+            <button>{click ? <FaSearch /> : <FaSearch size={25} />}</button>
+          </Link>
+
+          <Link className="flex" to={"/login"}>
+            <button>{click ? <VscAccount /> : <VscAccount size={25} />}</button>
+          </Link>
           <button className="block md:hidden transition" onClick={handleClick}>
             {click ? <FaTimes /> : <CiMenuFries size={25} />}
           </button>
