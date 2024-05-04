@@ -19,7 +19,7 @@ const FormLoginFragment = () => {
     if (data.emailValue === emailStored && data.passwordValue === passwordStored) {
       localStorage.setItem("email", data.emailValue);
       localStorage.setItem("password", data.passwordValue);
-      window.location.href = "/pendaftaran";
+      window.location.href = "/daftarsekolah";
     } else {
       alert("Email atau password salah");
     }

@@ -12,14 +12,23 @@ const RegisterFragments = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      localStorage.setItem("NamaLengkap", e.target.NamaLengkap.value);
-      localStorage.setItem("TempatLahir", e.target.TempatLahir.value);
-      localStorage.setItem("TanggalLahir", e.target.TanggalLahir.value);
-      localStorage.setItem("AsalSekolah", e.target.AsalSekolah.value);
-      localStorage.setItem("AlamatRumah", e.target.AlamatRumah.value);
-      localStorage.setItem("NomorHP/WA", e.target.NomorHP.value);
-      localStorage.setItem("UploadFoto", e.target.PasFoto.files[0]);
+      const formData = {
+        NamaLengkap: e.target.NamaLengkap?.value || "",
+        TempatLahir: e.target.TempatLahir?.value || "",
+        TanggalLahir: e.target.TanggalLahir?.value || "",
+        AsalSekolah: e.target.AsalSekolah?.value || "",
+        AlamatRumah: e.target.AlamatRumah?.value || "",
+        NomorHP: e.target.NomorHP?.value || "",
+        // Pastikan untuk mengecek apakah e.target.PasFoto ada dan memiliki file
+        UploadFoto: e.target.PasFoto?.files[0]?.name || "",
+      };
+      // Simpan data ke local storage
+      Object.keys(formData).forEach((key) => {
+        localStorage.setItem(key, formData[key]);
+      });
+      // Redirect ke halaman dashboard setelah data disimpan
       setIsSuccess(true);
+      window.location.href = "/dashboard";
       console.log("Data berhasil terkirim");
     } catch (error) {
       console.error("Gagal mengirim data:", error);
