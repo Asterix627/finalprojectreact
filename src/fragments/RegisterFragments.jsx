@@ -7,37 +7,20 @@ import { Link } from "react-router-dom";
 import DataForm from "../components/data/DataForm";
 
 const RegisterFragments = () => {
-  const [formData, setFormData] = useState({
-    "Nama Lengkap": "",
-    "Tempat Lahir": "",
-    "Tanggal Lahir": "",
-    "Asal Sekolah": "",
-    "Alamat Rumah": "",
-    "Nomor HP/WA": "",
-  });
-
   const [isSuccess, setIsSuccess] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Kirim data ke database di sini
-      console.log("Data yang akan dikirim:", formData);
-      // Reset formulir setelah pengiriman berhasil
-      setFormData({
-        "Nama Lengkap": "",
-        "Tempat Lahir": "",
-        "Tanggal Lahir": "",
-        "Asal Sekolah": "",
-        "Alamat Rumah": "",
-        "Nomor HP/WA": "",
-      });
-      setIsSuccess(true); // Set isSuccess menjadi true setelah pengiriman berhasil
+      localStorage.setItem("NamaLengkap", e.target.NamaLengkap.value);
+      localStorage.setItem("TempatLahir", e.target.TempatLahir.value);
+      localStorage.setItem("TanggalLahir", e.target.TanggalLahir.value);
+      localStorage.setItem("AsalSekolah", e.target.AsalSekolah.value);
+      localStorage.setItem("AlamatRumah", e.target.AlamatRumah.value);
+      localStorage.setItem("NomorHP/WA", e.target.NomorHP.value);
+      localStorage.setItem("UploadFoto", e.target.PasFoto.files[0]);
+      setIsSuccess(true);
+      console.log("Data berhasil terkirim");
     } catch (error) {
       console.error("Gagal mengirim data:", error);
     }
@@ -53,14 +36,14 @@ const RegisterFragments = () => {
             subTitle="Data Anda telah berhasil terkirim."
           />
           <p className="pt-2 mt-2 text-center text-sm text-gray-500">
-                Kembali ke{" "}
-                <Link
-                  to="/"
-                  className="font-semibold text-blue-600 hover:text-md hover:font-bold"
-                >
-                  Home
-                </Link>
-              </p>
+            Kembali ke{" "}
+            <Link
+              to="/"
+              className="font-semibold text-blue-600 hover:text-md hover:font-bold"
+            >
+              Home
+            </Link>
+          </p>
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center gap-10 py-10 my-auto mx-10 lg:flex-row lg:my-auto">
@@ -76,8 +59,6 @@ const RegisterFragments = () => {
                 name={input.name}
                 placeholder={input.placeholder}
                 type={input.type}
-                value={formData[input.name]}
-                onChange={handleChange}
               />
             ))}
             <div className="flex flex-col justify-center space-x-10">
